@@ -1,0 +1,102 @@
+<nav id="site-navigation" class="container">
+    <div class="navigation">
+        <button class="button">
+				<span class="icon">
+					<span class="ico-bar"></span>
+					<span class="ico-bar"></span>
+					<span class="ico-bar"></span>
+				</span>
+        </button>
+        <div class="search2">
+            <form id="search_form2" action="https://bobs-tube.com/search/" method="get"
+                  data-url="https://bobs-tube.com/search/%QUERY%/">
+                <div class="search-text"><input type="text" name="q" placeholder="Search" value=""></div>
+                <button type="submit" class="sbutton"></button>
+            </form>
+        </div>
+
+        <ul class="primary">
+            <li class="mhome">
+                <a href="/" id="item1">Home</a>
+            </li>
+            <li class="mmovies">
+                <a href="/latest-updates/" id="item2">Latest</a>
+            </li>
+            <li class="mtoprated">
+                <a href="/top-rated/" id="item3">Top Rated</a>
+            </li>
+            <li class="mmostpopular ">
+                <a href="/most-popular/" id="item4">Most Viewed</a>
+            </li>
+
+            <li class="mcategories ">
+                <a href="/categories/" id="item6">Categories</a>
+            </li>
+
+            <li class="mmodels ">
+                <a href="/pornstars/" id="item8">Pornstars</a>
+            </li>
+
+            {{/*<li class="mplaylists">*/}}
+            {{/*<a href="/tags" id="item9">Tags</a>*/}}
+            {{/*</li>*/}}
+
+            <li class="mob_hide showMainNav">
+                <svg class="js-link nav-btn awn-ignore" id="showMainNav" xmlns="http://www.w3.org/2000/svg" width="24"
+                     height="20">
+                    <path d="M0 0h24v4H0zM0 8h24v4H0zM0 16h24v4H0z"></path>
+                </svg>
+
+                {{if .LoginStatus}}
+                    <ul class="drdw2">
+
+                        <li class=" hellouser" style="color: #ff8db2;height: 30px;padding-top: 9px;">
+                            Hello, prekevin
+                        </li>
+                        <li class=""><a href="https://bobs-tube.com/my/">Profile</a></li>
+                        <li class=""><a href="https://bobs-tube.com/my/playlists/" class="disabled">Playlists (0)</a>
+                        </li>
+                        <li class=""><a href="https://bobs-tube.com/my/favourites/videos/">Favourite Videos (3)</a></li>
+                        <li class="mob-show"><a href="https://bobs-tube.com/my/favourites/albums/" class="disabled">Favourite
+                                Albums (0)</a></li>
+                        <li class="mob-show"><a href="https://bobs-tube.com/my/subscriptions/" class="disabled">Subscriptions
+                                (0)</a></li>
+                        <li class=""><a href="https://bobs-tube.com/logout/">Log out</a></li>
+
+                    </ul>
+                {{else}}
+                    <ul class="drdw2">
+
+                        <li class=" mmodels"><a data-href="https://bobs-tube.com/signup/" data-fancybox="ajax">Sign
+                                up</a>
+                        </li>
+                        {{/*<li class=" mmodels"><a data-href="https://bobs-tube.com/login/" data-fancybox="ajax" id="login">Log in</a></li>*/}}
+                        <li class=" mmodels"><a data-href="/login/" data-fancybox="ajax" id="login">Log in</a></li>
+                    </ul>
+                {{end}}
+
+
+            </li>
+
+            {{if .LoginStatus}}
+                <li class="mob-show hellouser">Hello, prekevin</li>
+                <li class="mob-show"><a href="https://bobs-tube.com/my/">Profile</a></li>
+                <li class="mob-show"><a href="https://bobs-tube.com/my/playlists/" class="disabled">Playlists (0)</a></li>
+                <li class="mob-show"><a href="https://bobs-tube.com/my/favourites/videos/">Favourite Videos (3)</a></li>
+                <li class="mob-show"><a href="https://bobs-tube.com/my/favourites/albums/" class="disabled">Favourite Albums (0)</a></li>
+                <li class="mob-show"><a href="https://bobs-tube.com/my/subscriptions/" class="disabled">Subscriptions (0)</a></li>
+                <li class="mob-show"><a href="https://bobs-tube.com/logout/">Log out</a></li>
+            {{else}}
+
+                <li class="mob-show mmodels"><a data-href="/signup/" data-fancybox="ajax">Sign up</a></li>
+                <li class="mob-show mmodels"><a data-href="/login/" data-fancybox="ajax" id="login">Log in</a></li>
+            {{end}}
+
+        </ul>
+        <ul class="secondary">
+        </ul>
+    </div>
+    <script>
+        $(".{{.nav_selected}}").addClass("selected")
+    </script>
+</nav>

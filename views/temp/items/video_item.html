@@ -1,0 +1,26 @@
+<div class="item   videos-holder">
+    <a class="video-thumb" href="/play/{{.VideoID}}"
+       title="{{.Name}}" data-rt="1:ca02e299655209f5097abfd1528e3e5b:0:{{.VideoID}}:1:">
+        <div class="img">
+
+            <div class="image">
+                <img class="thumb lazy-load" src="/static/img/800.png"
+                     data-src="{{.VideoImageURL}}"
+                     alt="{{.Name}}" data-cnt="4" width="380" height="214"/>
+
+                <video muted="muted" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' loop="" id="id{{.VideoID}}"
+                       preload="none" src="{{.PreviewMP4}}"></video>
+                <span class="th-loader"></span>
+            </div>
+            <span class="ico-fav-0 " title="Add to Favourites" data-fav-video-id="{{.VideoID}}" data-fav-type="0"></span>
+            <span class="ico-fav-1 " title="Watch Later" data-fav-video-id="{{.VideoID}}" data-fav-type="1"></span>
+
+            <div class="tmb_hd">HD</div>
+        </div>
+        <strong class="title">
+            {{.Name}}
+        </strong>
+        <div class="wrap">
+        </div>
+    </a>
+</div>

@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="main-content">
+        <div class="sidebar">
+
+            {{range $k,$v := .LeftSidebar}}
+                <div class="headline">
+                    <h2><a href="/{{index $v "type_id"}}/">{{index $v "type"}}</a></h2>
+                </div>
+                <ul class="list">
+                    {{range index $v "data"}}
+                        <li>
+                            <a href="/{{index $v "type_id"}}/{{.SidebarID}}/">{{.SidebarName}}<span
+                                        class="rating">{{.SidebarScore}}</span></a>
+                        </li>
+                    {{end}}
+
+                </ul>
+
+            {{end}}
+
+
+        </div>
+        <div class="main-container">
+            <div id="list_videos_latest_videos_list">
+                <div class="headline">
+                    <h2>
+                        {{.PageName}} </h2>
+                </div>
+
+                <div class="box">
+                    <div class="list-videos">
+                        <div class="margin-fix" id="list_videos_latest_videos_list_items">
+
+                            {{range .Videos}}
+                                {{template "temp/items/video_item.html" .}}
+                            {{end}}
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <script type="text/javascript">
+                    videoplay();
+                </script>
+                <div class="pagination" id="list_videos_latest_videos_list_pagination">
+                    <div class="pagination-holder">
+
+                        {{str2html .Pagination}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box tags-cloud">
+            {{range .RandomTag}}
+                <a href="/tags/{{.TagID}}/" style="font-weight: bold; font-size: 13px;">{{.TagName}}</a>
+                &nbsp;&nbsp;
+            {{end}}
+            &nbsp;&nbsp;
+            <a href="https://bobs-tube.com/tags/" class="all">Show All Tags</a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,128 @@
+<div class="content content_videos_lists">
+    <div class="main-content">
+        <div class="sidebar">
+
+            {{range $k,$v := .LeftSidebar}}
+                <div class="headline">
+                    <h2><a href="/{{index $v "type_id"}}/">{{index $v "type"}}</a></h2>
+                </div>
+                <ul class="list">
+                    {{range index $v "data"}}
+                        <li>
+                            <a href="/{{index $v "type_id"}}/{{.SidebarID}}/">{{.SidebarName}}<span
+                                        class="rating">{{.SidebarScore}}</span></a>
+                        </li>
+                    {{end}}
+
+                </ul>
+
+            {{end}}
+
+
+        </div>
+        <div class="main-container">
+            <div class="headline">
+                <h1>{{.Pornstar.PornStarName}}</h1>
+                {{/*<div class="button-info">8</div>*/}}
+                {{/*<a href="https://bobs-tube.com/login-required/" data-fancybox="ajax" class="button"><span>Subscribe</span></a>*/}}
+            </div>
+            <div class="block-model">
+                <div class="img">
+                    <noindex>
+                        <img class="thumb" src="{{.Pornstar.PornStarImage}}" alt="{{.Pornstar.PornStarName}}">
+                    </noindex>
+                </div>
+                <ul class="model-list">
+                    <li>Country: <span>N/A</span></li>
+                    <li>City: <span>N/A</span></li>
+                    <li>Age: <span>N/A</span></li>
+                    <li>Height: <span>N/A</span></li>
+                    <li>Weight: <span>N/A</span></li>
+                </ul>
+                <div class="desc" title="">No description</div>
+                <div class="website">
+                    Official Site:
+                    <span>
+							N/A
+					</span>
+                </div>
+            </div>
+            <div id="list_videos_common_videos_list">
+
+                <div class="headline">
+                    <h2>
+                        {{.Pornstar.PornStarName}}'s New Videos		</h2>
+
+
+                    <div class="sort">
+                        <span class="icon type-sort"></span>
+                        <strong>Latest</strong>
+                        <ul id="list_videos_common_videos_list_sort_list">
+                            <li>
+                                <a data-action="ajax" data-container-id="list_videos_common_videos_list_sort_list" data-block-id="list_videos_common_videos_list" data-parameters="sort_by:video_viewed">Most Viewed</a>
+                            </li>
+                            <li>
+                                <a data-action="ajax" data-container-id="list_videos_common_videos_list_sort_list" data-block-id="list_videos_common_videos_list" data-parameters="sort_by:rating">Top Rated</a>
+                            </li>
+                            <li>
+                                <a data-action="ajax" data-container-id="list_videos_common_videos_list_sort_list" data-block-id="list_videos_common_videos_list" data-parameters="sort_by:duration">Longest</a>
+                            </li>
+                            <li>
+                                <a data-action="ajax" data-container-id="list_videos_common_videos_list_sort_list" data-block-id="list_videos_common_videos_list" data-parameters="sort_by:most_commented">Most Commented</a>
+                            </li>
+                            <li>
+                                <a data-action="ajax" data-container-id="list_videos_common_videos_list_sort_list" data-block-id="list_videos_common_videos_list" data-parameters="sort_by:most_favourited">Most Favourited</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sort">
+                        <span class="icon type-video"></span>
+                        <strong>
+                            Videos (33)
+                        </strong>
+                        {{/*<ul>*/}}
+                            {{/*<li><a href="https://bobs-tube.com/albums/models/alexis-ford/">Albums (5)</a></li>*/}}
+                        {{/*</ul>*/}}
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="list-videos">
+                        <div class="margin-fix" id="list_videos_common_videos_list_items">
+
+                            <noindex>
+                                <!--<div class="videos-ad">
+
+                                </div>-->
+                            </noindex>
+
+                            {{range .Videos}}
+                                {{template "temp/items/video_item.html" .}}
+                            {{end}}
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <script type="text/javascript">
+                    videoplay();
+                </script>
+                <div class="pagination" id="list_videos_common_videos_list_pagination">
+                    <div class="pagination-holder">
+                        {{str2html .Pagination}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box tags-cloud">
+        {{range .RandomTag}}
+            <a href="/tags/{{.TagID}}/" style="font-weight: bold; font-size: 13px;">{{.TagName}}</a>
+            &nbsp;&nbsp;
+        {{end}}
+        &nbsp;&nbsp;
+        <a href="https://bobs-tube.com/tags/" class="all">Show All Tags</a>
+    </div>
+</div>

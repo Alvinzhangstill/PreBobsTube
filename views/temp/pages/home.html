@@ -1,0 +1,100 @@
+<div class="content">
+    <div class="main-content">
+
+        {{if eq .currentPage 1}}
+            <div class="headline">
+                <h2>
+                    Videos Being Watched </h2>
+            </div>
+
+            <div class="box">
+                <div class="list-videos">
+                    <div class="margin-fix" id="list_videos_videos_watched_right_now_items">
+                        {{range .mostViewsVideos}}
+                            {{template "temp/items/video_item.html" .}}
+                        {{end}}
+
+                    </div>
+                </div>
+
+            </div>
+        {{end}}
+
+
+        <script type="text/javascript">
+            videoplay();
+        </script>
+        <div id="list_videos_most_recent_videos">
+            <div class="headline">
+                <h2>
+                    New Videos </h2>
+
+                <div class="sort">
+                    <span class="icon type-sort"></span>
+                    <strong>Latest</strong>
+                    <ul id="list_videos_most_recent_videos_sort_list">
+                        <li>
+                            <a data-action="ajax" data-container-id="list_videos_most_recent_videos_sort_list"
+                               data-block-id="list_videos_most_recent_videos" data-parameters="sort_by:video_viewed">Most
+                                Viewed</a>
+                        </li>
+                        <li>
+                            <a data-action="ajax" data-container-id="list_videos_most_recent_videos_sort_list"
+                               data-block-id="list_videos_most_recent_videos" data-parameters="sort_by:rating">Top
+                                Rated</a>
+                        </li>
+                        <li>
+                            <a data-action="ajax" data-container-id="list_videos_most_recent_videos_sort_list"
+                               data-block-id="list_videos_most_recent_videos"
+                               data-parameters="sort_by:duration">Longest</a>
+                        </li>
+                        <li>
+                            <a data-action="ajax" data-container-id="list_videos_most_recent_videos_sort_list"
+                               data-block-id="list_videos_most_recent_videos" data-parameters="sort_by:most_commented">Most
+                                Commented</a>
+                        </li>
+                        <li>
+                            <a data-action="ajax" data-container-id="list_videos_most_recent_videos_sort_list"
+                               data-block-id="list_videos_most_recent_videos" data-parameters="sort_by:most_favourited">Most
+                                Favourited</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="list-videos">
+                    <div class="margin-fix" id="list_videos_most_recent_videos_items">
+
+                        {{range .newVideos}}
+                            {{template "temp/items/video_item.html" .}}
+                        {{end}}
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <script type="text/javascript">
+                videoplay();
+            </script>
+            <div class="pagination" id="list_videos_most_recent_videos_pagination">
+                <div class="pagination-holder">
+
+                    {{str2html .Pagination}}
+                </div>
+            </div>
+        </div>
+        <div class="box tags-cloud">
+
+            {{range .RandomTag}}
+                <a href="/tags/{{.TagID}}/" style="font-weight: bold; font-size: 13px;">{{.TagName}}</a>
+                &nbsp;&nbsp;
+            {{end}}
+
+            &nbsp;&nbsp;
+            <a href="https://bobs-tube.com/tags/" class="all">Show All Tags</a>
+        </div>
+    </div>
+</div>

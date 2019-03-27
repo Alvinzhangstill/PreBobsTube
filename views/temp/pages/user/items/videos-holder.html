@@ -1,0 +1,31 @@
+<div class="item   videos-holder">
+    <a class="video-thumb" href="/play/{{.VideoID}}" title="{{.Name}}">
+        <div class="img">
+
+            <div class="image">
+                <img class="thumb lazy-load" src="/static/img/800.png" data-src="{{.VideoImageURL}}" alt="{{.Name}}" data-cnt="4" width="380" height="214">
+
+                <video muted="muted" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" loop="" id="id2068832" preload="none" src="{{.PreviewMP4}}"></video>
+                <span class="th-loader"></span>
+            </div>
+            <span class="ico-fav-0 fixed" title="Add to Favourites" data-fav-video-id="{{.VideoID}}" data-fav-type="0"></span>
+            <span class="ico-fav-1 " title="Watch Later" data-fav-video-id="{{.VideoID}}" data-fav-type="1"></span>
+
+            <div class="tmb_hd">HD</div>
+        </div>
+        <strong class="title">
+            {{.Name}}
+        </strong>
+        <div class="wrap">
+
+        </div>
+    </a>
+    <div class="item-control">
+        <div class="item-control-holder">
+            <div class="toggle-button " data-action="select">
+                <input type="checkbox" class="checkbox" name="delete[]" value="{{.VideoID}}">
+            </div>
+            <div class="toggle-button " data-action="delete" data-id="{{.VideoID}}" data-confirm="Please confirm deleting video 'Amateur Teen Jessica Rex Fucks In Public Park' from your favourites.">Delete</div>
+        </div>
+    </div>
+</div>
